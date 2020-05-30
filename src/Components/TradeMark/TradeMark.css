@@ -1,0 +1,16 @@
+.trademark{
+    display: flex;
+    max-width: 1300px;
+    justify-content: space-between;
+    align-content: center;
+    margin:30px auto;
+}
+
+.trademark img{
+    width:120px;
+    align-self: center;
+}
+
+.trademark img:nth-child(2){
+    padding-top: 15px;
+}

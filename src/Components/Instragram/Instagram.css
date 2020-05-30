@@ -1,0 +1,17 @@
+.instagram-wrapper{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin:0 auto;
+    justify-content:space-around;
+}
+.instagram-wrapper img{
+    padding: 0 0 10px 0;
+}
+
+@media screen and (max-width:1100px) {
+    .instagram-wrapper{
+        max-width: 900px;
+    }
+}

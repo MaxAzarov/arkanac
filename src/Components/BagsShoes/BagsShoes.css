@@ -1,0 +1,56 @@
+.bags-shoes{
+    display: flex;
+    margin-top: 80px;
+    background-color:#FAFAFA;
+}
+
+.bags-shoes-img{
+    flex:1 1 50%;
+    display: flex;
+    object-fit: contain;
+    max-width:50%;
+}
+
+.bags-shoes-img img{
+    width:100%;
+}
+
+.bags-shoes-text{
+
+    flex:1 1 50%;
+    width:50%;
+    text-align: center;
+    align-self: center;
+}
+.bags-shoes-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size:42px;
+    font-weight:300;
+}
+
+.bags-shoes-title::after{
+    content:'';
+    display: block;
+    width:100px;
+    height:1px;
+    background-color: #CFCFCF;
+    margin: 30px auto;
+}
+
+
+.bags-shoes-subtitle{
+    max-width: 520px;
+    font-family: 'Montserrat', sans-serif;
+    color:#929292;
+    font-size:13px;
+    margin:0 auto;
+    line-height: 20px;
+}
+
+.bags-shoes-btn{
+    display: flex;
+    margin:32px auto 0 auto;
+    padding: 20px 45px;
+    background:transparent;
+    font-family: 'Montserrat', sans-serif;
+}

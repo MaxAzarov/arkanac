@@ -1,0 +1,37 @@
+.map-wrapper{
+    margin: 0 25px 0 25px;
+    width:100%;
+    position:relative;
+}
+
+.map-info{
+    position:absolute;
+    padding:20px;
+    top:50%;
+    left:20%;
+    display: block;
+    background-color: #fff;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.map-wrapper img{
+    width:100%;
+    z-index:1;
+}
+
+.map-info-location,
+.map-info-tel,
+.map-info-post,
+.map-info-work{
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:810px) {
+    .map-info{
+        left:0;
+    }
+}

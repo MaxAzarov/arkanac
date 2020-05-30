@@ -1,0 +1,67 @@
+.clothes-wrapper{
+    display: flex;
+    flex-wrap:wrap;
+    padding:0 25px 0 25px;
+    margin:0 auto;
+    justify-content: space-between;
+}
+
+.clothes-item{
+    position: relative;
+    justify-content: center;
+    margin:0 auto;
+}
+
+.clothes-button{ 
+    position:absolute; 
+    background:#fff;
+    text-transform: uppercase;
+    color:#000;
+    min-width:250px;
+    border:none;
+    bottom:10px;
+    padding:20px;
+     left:50%;
+     transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%); 
+ }
+
+@media screen and (max-width:1600px) {
+    .clothes-wrapper{
+        display: flex;
+        flex-wrap:wrap;
+        max-width:900px;
+    }
+    .clothes-item{
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width:990px) {
+    .clothes-wrapper{
+        display: flex;
+        flex-direction: column;
+        margin:0 auto;
+        justify-content: center;
+
+    }
+    .clothes-item{
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+}
+
+ @media screen and (max-width:950px) {
+     .clothes-wrapper{
+         display: flex;
+         flex-direction:column;
+         justify-content: center;
+         align-content: center;
+     }
+     .clothes-item{
+         margin-bottom: 10px;
+     }
+
+ }

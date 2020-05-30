@@ -1,0 +1,89 @@
+.top-trending-wrapper{
+    margin-top: 100px;
+}
+.top-trending-title{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size:42px;
+    font-weight:400;
+}
+.top-trending-title::after{
+    content:"";
+    display: block;
+    width:100px;
+    height:1px;
+    background-color: #CFCFCF;
+    margin:30px auto;
+}
+.top-trending-text{
+    width:50%;
+    margin:0 auto;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size:13px;
+    color:#929292;
+}
+
+/* sorting  */
+.top-trending-sorting{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.top-trending-sorting button + button{
+    margin-left: 20px;
+}
+.top-trending-sorting button{
+    position:relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size:12px;
+    border:#707070;
+    padding:10px;
+    color:#000;
+    background-color: #EEEEEE;
+    outline:none;
+}
+
+.top-trending-sorting button::after{
+    content:'';
+    position:absolute;
+    bottom:-10px;
+    left:50%;
+    transform:translateX(-50%);
+    display: block;
+    border-right:5px solid transparent;
+    border-left:5px solid transparent;
+    border-top: 10px solid #EEEEEE ;
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+    outline:none;
+}
+
+.top-trending-sorting button:hover{   
+    background-color: #292929;    
+}
+.top-trending-sorting button:hover:after{
+    border-right:5px solid transparent;
+    border-left:5px solid transparent;
+    border-top: 10px solid #292929 ;
+}
+.top-trending-sorting button:hover span{
+    color:#D3D3D3;
+}
+
+.all-products-btn{
+    text-transform: uppercase;
+    display: block;
+    margin:0 auto;
+    background-color:#000;
+    color:#fff;
+    font-size:13px;
+    font-family: 'Montserrat', sans-serif;
+    padding:20px 60px;
+}
+.all-products-btn:hover{
+    background-color: #292929;
+}

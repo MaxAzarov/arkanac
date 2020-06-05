@@ -6,7 +6,7 @@
 .header{
     width:100%;
     height:90vh;
-    background: url('./../../images/Pic.png') 0 0/110% 100% no-repeat;
+    background: url('./../../images/Pic.png') center/cover no-repeat;
 }
 
 .header-container{
@@ -80,25 +80,149 @@
     display: flex;
     align-self: center;
     margin-left: 10px;
+    position: relative;
+    z-index:1;
 }
+
+.cart:hover .shopping-cart{
+    display: block;
+}
+.cart .goods-in-cart{
+    position: absolute;
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    /* display: none; */
+    background-color:#000;
+    bottom: -2px;
+    right: -2px;
+    z-index:2;
+    color:#fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    font-size:6px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopping-cart{
+    position: absolute;
+    display: none;
+    top:20px;
+    background-color:#f9f9f9;
+}
+.shopping-cart>p{
+    margin: 10px;
+}
+.shopping-cart__item{
+    background-color: #fff;
+    display: flex;
+    font-size:13px;
+    margin-bottom: 10px;
+}
+
+.shopping-cart__item__img{
+    width:150px;
+}
+.shopping-cart__item__img img{
+    width:100%;
+}
+
+.shopping-cart__item__delete{
+    flex:1 0 auto;
+    width:20px;
+    height:20px;
+    margin-right: 10px;
+    background-color: #f1f1f1;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    position: relative;
+}
+
+.shopping-cart__item__delete .line{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width:10px;
+    height:2px;
+    background-color: #000;
+    -webkit-transform: translate(-50%,-50%) rotate(45deg);
+    -moz-transform: translate(-50%,-50%) rotate(45deg);
+    -ms-transform: translate(-50%,-50%) rotate(45deg);
+    -o-transform: translate(-50%,-50%) rotate(45deg);
+}
+.shopping-cart__item__delete .line:last-child{
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+    -moz-transform: translate(-50%,-50%) rotate(-45deg);
+    -ms-transform: translate(-50%,-50%) rotate(-45deg);
+    -o-transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.shopping-cart__item__delete:hover{
+    background-color: #f1f1f1be;
+}
+
+.shopping-cart-details .shopping-cart-details__row:last-child{
+    border-bottom:1px solid rgba(0,0,0,.1);
+    padding-bottom: 5px;
+}
+.shopping-cart-details__row{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: 5px;
+    background-color:#f9f9f9;
+}
+
+.shopping-cart-total{
+    display: flex;
+    justify-content: space-between;
+    margin:5px;
+}
+
+.shopping-cart__btn{
+    display: flex;
+    align-self: center;
+    padding:15px 30px;
+    border-radius:25px;
+    width:200px;
+    background-color: #000;
+    color:#fff;
+    border-style: none;
+    margin:10px auto;
+    -webkit-border-radius:25px;
+    -moz-border-radius:25px;
+    -ms-border-radius:25px;
+    -o-border-radius:25px;
+    outline:none;
+}
+
+
 .header-nav{
     display: flex;
     width:100%;
     justify-content: space-between;
-    /* padding:0 50px 0 50px; */
 }
-
 
 .container{
     display: flex;
-    /* margin-right: 25px; */
 }
 
 .header-nav__title{
     font-size: 26px;
     letter-spacing:10px;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
@@ -113,24 +237,6 @@
     background-color:#D4D4D4;
     display: block;
     margin-top:10px;
-    /* margin: 10px 25px 0 25px; */
-
-}
-
-.nav-subtitle{
-    display: flex;
-    max-width:600px;
-    min-width:100px;
-    word-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0;
-    font-size: 10px;
-}
-
-.nav-subtitle>p{
-    display: inline-flex;
-    display: flex;
-    justify-content: center;
 }
 
 .header-content{
@@ -142,12 +248,10 @@
 
 .header-title{
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     font-size: 30px;
 }
 
 .header-subtitle{
-    font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     width:200px;
     overflow:hidden;
@@ -166,7 +270,6 @@
     text-decoration: none;
     color:#fff;
     font-size: 11px;
-    font-family: 'Montserrat', sans-serif;
 }
 
 

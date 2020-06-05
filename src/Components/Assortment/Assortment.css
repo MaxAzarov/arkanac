@@ -33,7 +33,6 @@
 }
 
 .category-item .list ul li{
-    font-family: 'Montserrat', sans-serif;
     font-size:12px;
     color:#929292;
     list-style:none;
@@ -42,7 +41,6 @@
 
 .categories .category-item p {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     font-size:14px;
     display: flex;
 }
@@ -69,7 +67,6 @@
 }
 
 .filter-categories>p{
-    font-family: 'Montserrat', sans-serif;
     font-size:14px;
     font-weight: 100;
     margin-bottom: 5px;
@@ -89,7 +86,6 @@
   }
   
 .category-item p {
-    font-family: 'Montserrat', sans-serif;
     margin-top: 4px;
 }
 
@@ -142,7 +138,6 @@
 
 .clean-all{
     padding:17px 36px;
-    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     font-size:12px;
     border:1px solid  #000;

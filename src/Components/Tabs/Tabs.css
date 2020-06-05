@@ -1,0 +1,36 @@
+.tabs{
+    width:100%;
+    max-width:1150px;
+    margin:0 auto;
+}
+
+.tab .tab-title{
+    display: inline-flex;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size:20px;
+    border-top:1px solid #cfcbcb;
+    border-left:1px solid #cfcbcb;
+    border-right:1px solid #cfcbcb;
+    border-bottom: none;
+    margin-right: 20px;
+    background:#fffafa;
+    transition: all .2s ease-out 0.2s ;
+    padding:10px ;
+    -webkit-transition: all .2s ease-out 0.2s ;
+    -moz-transition: all .2s ease-out 0.2s ;
+    -ms-transition: all .2s ease-out 0.2s ;
+    -o-transition: all .2s ease-out 0.2s ;
+}
+
+.tab .tab-title:hover{
+    background:#dddada;
+    cursor:pointer;
+}
+.tab .tab-info{
+    border-top:none;
+    border:1px solid #cfcbcb;
+    padding:20px;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size:12px;
+    color:rgba(0,0,0,.5);
+}

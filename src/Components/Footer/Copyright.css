@@ -17,13 +17,13 @@
 }
 
 .subscribe-title{
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     font-size:26px;
     padding-bottom: 35px;
 }
 
 .subscribe-text{
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     font-size:12px;
     padding: 10px 0 0 0;
     color:#929292;
@@ -87,7 +87,7 @@ form.subscribe {
   
   form.subscribe input:focus {
     outline: none;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     font-size:11px;
     color:#929292;
 
@@ -112,13 +112,11 @@ form.subscribe {
 .copyright-products p,
 .your-account p {
     padding-bottom: 35px;
-    font-family: 'Montserrat', sans-serif;
     font-size:16px;
 }
 .copyright-information ul li,
 .copyright-products ul li,
 .your-account ul li{
-    font-family: 'Montserrat', sans-serif;
     font-size:12px;
     list-style: none;
     padding: 10px 0 0 0 ;

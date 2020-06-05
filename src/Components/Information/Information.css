@@ -1,0 +1,125 @@
+.bags-shoes{
+    display: flex;
+    margin-top: 80px;
+    background-color:#FAFAFA;
+}
+
+.bags-shoes-img{
+    flex:1 1 50%;
+    display: flex;
+    object-fit: contain;
+    max-width:50%;
+}
+
+.bags-shoes-img img{
+    width:100%;
+}
+
+.bags-shoes-text{
+    flex:1 1 50%;
+    width:50%;
+    text-align: center;
+    align-self: center;
+}
+.bags-shoes-title{
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size:42px;
+    font-weight:300;
+}
+
+.bags-shoes-title::after{
+    content:'';
+    display: block;
+    width:100px;
+    height:1px;
+    background-color: #CFCFCF;
+    margin: 30px auto;
+}
+
+.bags-shoes-subtitle{
+    max-width: 520px;
+    /* font-family: 'Montserrat', sans-serif; */
+    color:#929292;
+    font-size:13px;
+    margin:0 auto;
+    line-height: 20px;
+}
+
+.bags-shoes-btn{
+    display: flex;
+    margin:32px auto 0 auto;
+    padding: 20px 45px;
+    background:transparent;
+    /* font-family: 'Montserrat', sans-serif; */
+}
+
+
+.trademark{
+    display: flex;
+    max-width: 1300px;
+    justify-content: space-between;
+    align-content: center;
+    margin:30px auto;
+}
+
+.trademark img{
+    width:120px;
+    align-self: center;
+}
+
+.trademark img:nth-child(2){
+    padding-top: 15px;
+}
+.instagram-wrapper{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin:0 auto;
+    justify-content:space-around;
+}
+.instagram-wrapper img{
+    padding: 0 0 10px 0;
+}
+
+@media screen and (max-width:1100px) {
+    .instagram-wrapper{
+        max-width: 900px;
+    }
+}
+.map-wrapper{
+    width:100%;
+    position:relative;
+}
+
+.map-info{
+    position:absolute;
+    padding:20px;
+    top:50%;
+    left:20%;
+    display: block;
+    background-color: #fff;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.map-wrapper img{
+    width:100%;
+    z-index:1;
+}
+
+.map-info-location,
+.map-info-tel,
+.map-info-post,
+.map-info-work{
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:810px) {
+    .map-info{
+        left:0;
+    }
+}

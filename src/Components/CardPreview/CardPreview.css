@@ -1,0 +1,252 @@
+.card-preview-wrapper{
+    max-width:1150px;
+    margin:30px auto;
+    display: flex;
+}
+
+.image-big{
+    flex:0 0 30%;
+    max-width: 400px;
+}
+.image-big img{
+    width:100%;
+}
+
+.images-swiper{
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.images-swiper img{
+    width:20%;
+    opacity:0.5;
+}
+
+.images-swiper img:hover{
+    opacity:1;
+}
+
+.btn-left,
+.btn-right{
+    min-width:20px;
+    position: relative;
+    border:none;
+    height:auto;
+    background-color:rgba(146, 146, 146, .1);
+}
+.btn-right .arrow,
+.btn-left .arrow{
+    display: flex;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+}
+.btn-right .arrow{
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left:5px solid #000;
+}
+.btn-left .arrow{
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right:5px solid #000;
+}
+
+/* card-info */
+
+.card-preview-text{
+    margin-left: 15px;
+}
+.card-preview-price-new{
+    font-size:30px;
+}
+
+.card-preview-price-new::after{
+    content:"$65.55";
+    text-decoration: line-through;
+    color:#929292;
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.card-preview-title{
+    font-size:25px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.card-preview-subtitle{
+    max-width:550px;
+    font-size:13px;
+    margin-top: 15px;
+}
+
+.social-circle {
+    margin: 30px 20px 0 0;
+    width:30px;
+    height:100%;
+    height:30px;
+    display: flex;
+    border-radius:50%;
+    background-color:#bdb8b3;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    overflow: hidden;
+}
+.social-circle-wrapper{
+    display: flex;
+}
+.social-circle img{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    border-radius:50%;
+    width:100%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+}
+.social-circle img:hover{
+    background-color:#a5a4a2;
+    cursor:pointer;
+}
+
+.card-preview-social::after{
+    content:"";
+    margin: 30px 0 30px 0;
+    display: flex;
+    width:100%;
+    height:1px;
+    background-color:rgba(146, 146, 146, .5);
+}
+
+.card-preview-settings #size{
+    border:none;
+    background-color:rgba(146, 146, 146, .2);
+    padding:10px 30px 10px 10px;
+}
+
+.settings-item{
+    margin-bottom: 20px;
+}
+
+.settings-item .color{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.settings-item label{
+    margin-right: 70px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.settings-item:last-child label{
+    margin-right: 30px;
+}
+
+.settings-item-color{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.settings-item-color p{
+    display: flex;
+    align-self: center;
+}
+
+.color-picker{
+    margin-left: 55px;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+.color-picker-item{
+    margin: 0 20px 0 0;
+    width:30px;
+    height:100%;
+    height:30px;
+    align-self: center;
+    display: flex;
+    border-radius:50%;
+    background-color:#bdb8b3;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    overflow: hidden;
+}
+.color-picker .color-picker-item:nth-child(1){
+    background-color:blue;
+}
+.color-picker .color-picker-item:nth-child(2){
+    background-color:rgba(43, 144, 175, 0.425);
+}
+.color-picker .color-picker-item:nth-child(2){
+    background-color:rgb(180, 156, 156);
+}
+
+ .btn-cart{
+    text-transform: uppercase;
+    display: block;
+    background-color:#000;
+    color:rgba(256,256,256,.9);
+    padding:17px 40px;
+}
+.cart-manipulation{
+    margin-top: 40px;
+    display: flex;
+}
+.cart-manipulation .status{
+    color:green;
+    align-self: center;
+    display: flex;
+    margin-left: 30px;
+}
+ .status::before{
+    content:url('./../../images/icons/success-icon.png');
+    display: block;
+    width:100%;
+    width:10px;
+    height:10px;
+    margin-right: 20px;
+}
+
+.all-features{
+    margin-top: 20px;
+    display: flex;
+    flex-direction:column;
+}
+ .feature-wrapper{
+    justify-content: space-between;
+    display: flex;
+}
+
+.all-features:after,
+.all-features:before{
+    content:"";
+    width:100%;
+    height:2px;
+    background-color:rgba(146, 146, 146, .1);
+    display: block;
+}
+
+.all-features-item{
+    padding: 20px;
+    display: flex;
+}
+
+.all-features-item p{
+    display: flex;
+    align-self: center;
+    margin-left: 10px;
+}

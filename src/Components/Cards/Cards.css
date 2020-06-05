@@ -13,7 +13,7 @@
     text-align: center;
 }
 .trending-card{
-    width:40%;
+    max-width:350px;
     flex:0 0 20%;
     position:relative;
 }
@@ -26,7 +26,6 @@
     background-color:#000;
     color:#fff;
     padding:5px 10px 5px 10px;
-    font-family: 'Montserrat', sans-serif;
     font-size:12px;
     font-weight:300;
 }
@@ -38,13 +37,11 @@
 }
 
 .card-price{
-    font-family: 'Montserrat', sans-serif;
     font-size:16px;
     color:#929292;
     font-weight: 100;
 }
 .card-old-price{
-    font-family: 'Montserrat', sans-serif;
     font-size:10px;
     text-decoration: line-through;
     color:#929292;
@@ -57,7 +54,6 @@
 .card-discount{
     font-size:12px;
     font-weight:300;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 100;
     position:absolute;
     top:5px;

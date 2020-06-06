@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Assortment.css";
+import "./AssortmentFiltration.css";
 import AssortmentCards from "../AssortmentCards/AssortmentCards";
 export class AssortmentFiltration extends Component {
   constructor(props) {

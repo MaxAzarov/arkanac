@@ -1,123 +1,79 @@
 import React, { Component } from "react";
 import "./Cart.css";
-import HeaderCard from "./../HeaderCard/HeaderCard";
 import logo from "./../../images/Wallet.png";
 import bus from "./../../images/Bus.png";
 import persons from "./../../images/Person.png";
 import shirt from "./../../images/goods/shirt.jpg";
 
 export class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cartItems: [
+        {
+          image: shirt,
+          title: "Pappy intarsia crewneck sweater",
+          size: "s",
+          color: "Blue",
+          price: "$24.95",
+          amount: 2,
+        },
+        {
+          image: shirt,
+          title: "Pappy intarsia crewneck sweater",
+          size: "s",
+          color: "Blue",
+          price: "$24.95",
+          amount: 2,
+        },
+      ],
+    };
+  }
   render() {
     return (
       <>
-        <HeaderCard></HeaderCard>
         <div className="cart-wrapper">
           <div className="cart-left-bar">
             <div className="cart-title">Shopping cart</div>
-            <div className="cart-item">
-              <div className="cart-item-img">
-                <img src={shirt} alt="" />
-              </div>
-              <div className="cart-item-details">
-                <p>
-                  <span>Flowy embroidered shift dress</span>
-                </p>
-                <p className="price">
-                  <span>$59.95</span>
-                </p>
-                <p>
-                  Size:<span>S</span>
-                </p>
-                <p>
-                  Color:<span>Blue</span>
-                </p>
-              </div>
-              <div className="cart-item-amount">
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min={1}
-                  max={5}
-                  defaultValue={1}
-                />
-              </div>
-              <span>$59.95</span>
-              <div className="cancel">
-                <div className="line"></div>
-                <div className="line"></div>
-              </div>
-            </div>
 
-            <div className="cart-item">
-              <div className="cart-item-img">
-                <img src={shirt} alt="" />
-              </div>
-              <div className="cart-item-details">
-                <p>
-                  <span>Flowy embroidered shift dress</span>
-                </p>
-                <p className="price">
-                  <span>$59.95</span>
-                </p>
-                <p>
-                  Size:<span>S</span>
-                </p>
-                <p>
-                  Color:<span>Blue</span>
-                </p>
-              </div>
-              <div className="cart-item-amount">
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min={1}
-                  max={5}
-                  defaultValue={1}
-                />
-              </div>
-              <span>$59.95</span>
-              <div className="cancel">
-                <div className="line"></div>
-                <div className="line"></div>
-              </div>
-            </div>
-
-            <div className="cart-item">
-              <div className="cart-item-img">
-                <img src={shirt} alt="" />
-              </div>
-              <div className="cart-item-details">
-                <p>
-                  <span>Flowy embroidered shift dress</span>
-                </p>
-                <p className="price">
-                  <span>$59.95</span>
-                </p>
-                <p>
-                  Size:<span>S</span>
-                </p>
-                <p>
-                  Color:<span>Blue</span>
-                </p>
-              </div>
-              <div className="cart-item-amount">
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min={1}
-                  max={5}
-                  defaultValue={1}
-                />
-              </div>
-              <span>$59.95</span>
-              <div className="cancel">
-                <div className="line"></div>
-                <div className="line"></div>
-              </div>
-            </div>
+            {this.state.cartItems.map((item, index) => {
+              return (
+                <div className="cart-item" key={index}>
+                  <div className="cart-item-img">
+                    <img src={item.image} alt="" />
+                  </div>
+                  <div className="cart-item-details">
+                    <p>
+                      <span>{item.title}</span>
+                    </p>
+                    <p className="price">
+                      <span>{item.price}</span>
+                    </p>
+                    <p>
+                      Size:<span>{item.size}</span>
+                    </p>
+                    <p>
+                      Color:<span>{item.color}</span>
+                    </p>
+                  </div>
+                  <div className="cart-item-amount">
+                    <input
+                      type="number"
+                      id="quantity"
+                      name="quantity"
+                      min={1}
+                      max={5}
+                      defaultValue={1}
+                    />
+                  </div>
+                  <span>{item.price}</span>
+                  <div className="cancel">
+                    <div className="line"></div>
+                    <div className="line"></div>
+                  </div>
+                </div>
+              );
+            })}
             <button className="cart-btn-continue">Continue shopping</button>
           </div>
 

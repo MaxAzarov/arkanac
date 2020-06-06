@@ -2,17 +2,15 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.css";
-import HeaderMain from "./Components/HeaderMain/HeaderMain";
+import Header from "./Components/Header/Header";
 import Features from "./Components/Features/Features";
 import Clothes from "./Components/Clothes/Clothes";
 import TopTrending from "./Components/TopTrending/TopTrending";
 import Information from "./Components/Information/Information";
 import Footer from "./Components/Footer/Copyright";
-import HeaderAssortment from "./Components/HeaderAssortment/HeaderAssortment";
-import Assortment from "./Components/Assortment/Assortment";
+import AssortmentFiltration from "./Components/AssortmentFiltration/AssortmentFiltration";
 import CardPreview from "./Components/CardPreview/CardPreview";
-import HeaderCard from "./Components/HeaderCard/HeaderCard";
-import Proposals from "./Components/Proposals/Proposals";
+// import Proposals from "./Components/Proposals/Proposals";
 import Cart from "./Components/Cart/Cart";
 
 function App() {
@@ -20,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <HeaderMain></HeaderMain>
+          <Header header={true} data={true}></Header>
           <Features></Features>
           <Clothes></Clothes>
           <TopTrending></TopTrending>
@@ -28,17 +26,18 @@ function App() {
           <Footer></Footer>
         </Route>
         <Route path="/assortment" exact>
-          <HeaderAssortment></HeaderAssortment>
-          <Assortment></Assortment>
+          <Header></Header>
+          <AssortmentFiltration></AssortmentFiltration>
           <Footer></Footer>
         </Route>
         <Route path="/card" exact>
-          <HeaderCard></HeaderCard>
+          <Header></Header>
           <CardPreview></CardPreview>
-          <Proposals></Proposals>
+          {/* <Proposals></Proposals> */}
           <Footer></Footer>
         </Route>
         <Route path="/cart" exact>
+          <Header></Header>
           <Cart></Cart>
           <Footer></Footer>
         </Route>

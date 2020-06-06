@@ -3,7 +3,6 @@
 }
 .top-trending-title{
     text-align: center;
-    /* font-family: 'Montserrat', sans-serif; */
     font-size:42px;
     font-weight:400;
 }
@@ -18,7 +17,6 @@
 .top-trending-text{
     width:50%;
     margin:0 auto;
-    /* font-family: 'Montserrat', sans-serif; */
     text-align: center;
     font-size:13px;
     color:#929292;
@@ -36,7 +34,6 @@
 }
 .top-trending-sorting button{
     position:relative;
-    /* font-family: 'Montserrat', sans-serif; */
     font-size:12px;
     border:#707070;
     padding:10px;
@@ -81,7 +78,6 @@
     background-color:#000;
     color:#fff;
     font-size:13px;
-    /* font-family: 'Montserrat', sans-serif; */
     padding:20px 60px;
 }
 .all-products-btn:hover{

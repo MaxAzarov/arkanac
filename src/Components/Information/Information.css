@@ -22,7 +22,6 @@
     align-self: center;
 }
 .bags-shoes-title{
-    /* font-family: 'Montserrat', sans-serif; */
     font-size:42px;
     font-weight:300;
 }
@@ -38,7 +37,6 @@
 
 .bags-shoes-subtitle{
     max-width: 520px;
-    /* font-family: 'Montserrat', sans-serif; */
     color:#929292;
     font-size:13px;
     margin:0 auto;
@@ -50,7 +48,6 @@
     margin:32px auto 0 auto;
     padding: 20px 45px;
     background:transparent;
-    /* font-family: 'Montserrat', sans-serif; */
 }
 
 

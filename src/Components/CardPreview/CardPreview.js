@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./CardPreview.css";
-import img from "./../../images/model.png";
 import facebook from "./../../images/icons/facebook.png";
 import twitter from "./../../images/icons/twitter.png";
 import google from "./../../images/icons/google.png";
@@ -12,27 +11,79 @@ import card2 from "./../../images/carts/2.png";
 import card3 from "./../../images/carts/3.png";
 import card4 from "./../../images/carts/4.png";
 import Tabs from "./../Tabs/Tabs";
+import Cards from "./../../Components/Cards/Cards";
 
 export class CardPreview extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: [card1, card2, card3, card4, card2, card3, card4],
+      currentImg: card1,
+      translate: 0,
+    };
+  }
+
   render() {
     return (
       <>
         <section className="card-preview-wrapper">
           <div className="images-container">
             <div className="image-big">
-              <img src={img} alt="" />
+              <img src={this.state.currentImg} alt="" />
             </div>
             <div className="images-swiper">
-              <button className="btn-left">
-                <div className="arrow"></div>
-              </button>
-              <img src={card1} alt="" />
-              <img src={card2} alt="" />
-              <img src={card3} alt="" />
-              <img src={card4} alt="" />
-              <button className="btn-right">
-                <div className="arrow"></div>
-              </button>
+              <div
+                className="images-btn-1"
+                onClick={() =>
+                  this.setState({
+                    translate:
+                      this.state.translate < -100
+                        ? this.state.translate + 150
+                        : this.state.translate - 50,
+                  })
+                }
+              >
+                <button className="btn-left">
+                  <div className="arrow"></div>
+                </button>
+              </div>
+
+              <div
+                className="images-swiper__wrapper"
+                style={{
+                  transform: `translateX(${
+                    this.state.translate
+                  }px) translateY(${0}px)`,
+                }}
+              >
+                {this.state.images.map((img, index) => {
+                  return (
+                    <img
+                      src={img}
+                      alt=""
+                      key={index}
+                      onClick={() => this.setState({ currentImg: img })}
+                      className={`images-swiper__item`}
+                    />
+                  );
+                })}
+              </div>
+
+              <div
+                className="images-btn-2"
+                onClick={() =>
+                  this.setState({
+                    translate:
+                      this.state.translate > -50
+                        ? this.state.translate - 200
+                        : this.state.translate + 50,
+                  })
+                }
+              >
+                <button className="btn-right">
+                  <div className="arrow"></div>
+                </button>
+              </div>
             </div>
           </div>
           <div className="card-preview-text">
@@ -118,6 +169,12 @@ export class CardPreview extends Component {
           </div>
         </section>
         <Tabs></Tabs>
+        <div className="proposals">
+          <div className="proposals-title">You might also like</div>
+          <div className="proposals-cards">
+            <Cards proposals={2}></Cards>
+          </div>
+        </div>
       </>
     );
   }

@@ -10,7 +10,6 @@ import Information from "./Components/Information/Information";
 import Footer from "./Components/Footer/Copyright";
 import AssortmentFiltration from "./Components/AssortmentFiltration/AssortmentFiltration";
 import CardPreview from "./Components/CardPreview/CardPreview";
-// import Proposals from "./Components/Proposals/Proposals";
 import Cart from "./Components/Cart/Cart";
 
 function App() {
@@ -30,10 +29,9 @@ function App() {
           <AssortmentFiltration></AssortmentFiltration>
           <Footer></Footer>
         </Route>
-        <Route path="/card" exact>
+        <Route path="/card/:id" exact>
           <Header></Header>
           <CardPreview></CardPreview>
-          {/* <Proposals></Proposals> */}
           <Footer></Footer>
         </Route>
         <Route path="/cart" exact>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AssortmentCards.css";
-import Cards from "./../Cards/Cards";
+import Cards from "./../../containers/Cards/Cards";
 
 export class Assortment extends Component {
   constructor(props) {

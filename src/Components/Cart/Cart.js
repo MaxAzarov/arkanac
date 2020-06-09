@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import "./Cart.css";
 import logo from "./../../images/Wallet.png";
 import bus from "./../../images/Bus.png";
@@ -29,6 +31,7 @@ export class Cart extends Component {
       ],
     };
   }
+
   render() {
     return (
       <>
@@ -127,4 +130,4 @@ export class Cart extends Component {
   }
 }
 
-export default Cart;
+export default connect()(Cart);

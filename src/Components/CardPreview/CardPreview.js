@@ -11,7 +11,7 @@ import card2 from "./../../images/carts/2.png";
 import card3 from "./../../images/carts/3.png";
 import card4 from "./../../images/carts/4.png";
 import Tabs from "./../Tabs/Tabs";
-import Cards from "./../../Components/Cards/Cards";
+import Cards from "./../../containers/Cards/Cards";
 
 export class CardPreview extends Component {
   constructor(props) {

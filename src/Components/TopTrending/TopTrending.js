@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
 import "./TopTrending.css";
-import Cards from "./../Cards/Cards";
+import Cards from "./../../containers/Cards/Cards";
 
 export class TopTrending extends Component {
   constructor(props) {
     super(props);
     this.state = {
       trendingSorting: ["New products", "Prices drop", "Best sales"],
+      sortingBy: "New products",
     };
   }
   render() {
@@ -23,14 +24,19 @@ export class TopTrending extends Component {
         <section className="top-trending-sorting">
           {this.state.trendingSorting.map((item, index) => {
             return (
-              <button key={index}>
+              <button
+                key={index}
+                onClick={() => {
+                  this.setState({ sortingBy: item });
+                }}
+              >
                 <span>{item}</span>
                 <div className="triangle"></div>
               </button>
             );
           })}
         </section>
-        <Cards></Cards>
+        <Cards sortingBy={this.state.sortingBy}></Cards>
         <button className="all-products-btn">all products</button>
       </div>
     );

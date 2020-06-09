@@ -39,6 +39,8 @@ export class HeaderMain extends Component {
         "OuterWear",
         "Pans",
       ],
+      catalog: false,
+      input: false,
     };
   }
   render() {
@@ -52,8 +54,58 @@ export class HeaderMain extends Component {
             <div className="header-nav-wrapper">
               <div className="header-nav">
                 <div className="container">
-                  <div className="burger"></div>
-                  <div className="search-panel"></div>
+                  <div
+                    className="burger"
+                    onClick={() =>
+                      this.setState({ catalog: !this.state.catalog })
+                    }
+                  >
+                    <div
+                      className={
+                        this.state.catalog
+                          ? "all-goods-wrapper"
+                          : "unActiveCatalog"
+                      }
+                    >
+                      <div className="all-goods-wrapper__item">
+                        <p>T-Shirts & Blouses</p>
+                        <ul>
+                          <li>Blouses</li>
+                          <li>Shirts</li>
+                          <li>T-Shirts</li>
+                        </ul>
+                      </div>
+                      <div className="all-goods-wrapper__item">
+                        <p>OuterWear</p>
+                        <ul>
+                          <li>Coats</li>
+                          <li>Hoddies_&_Pullovers</li>
+                          <li>Jackets</li>
+                        </ul>
+                      </div>
+                      <div className="all-goods-wrapper__item">
+                        <p>Warm Clothes</p>
+                        <ul>
+                          <li>Blouses</li>
+                          <li>Shirts</li>
+                          <li>T-Shirts</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    onClick={() => this.setState({ input: !this.state.input })}
+                    className={"search-panel"}
+                  ></div>
+                  <input
+                    type="text"
+                    placeholder="search..."
+                    className={
+                      this.state.input
+                        ? "search-panel__input "
+                        : "search-panel-unactive"
+                    }
+                  />
                 </div>
                 <Link to="/" className="header-nav__title">
                   Arkanac

@@ -54,11 +54,51 @@ header{
 }
 .burger:hover,
 .burger:hover:before,
-.burger:hover:after {
-    background-color:yellow;
+.burger:hover:after  {
+    background-color:rgba(0,0,0,.4);
     cursor:pointer;
 }
 
+.unActiveCatalog{
+    display: none;
+}
+.all-goods-wrapper{
+    display: flex;
+    position: absolute;
+    background-color: rgba(256,256,256,.9);
+    top:10px;
+    justify-content: space-between;
+    min-width:350px;
+    flex-wrap: wrap;
+    flex:1 0 auto;
+
+}
+
+.all-goods-wrapper__item{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex:0 0 auto;
+}
+
+.all-goods-wrapper__item p{
+    display: flex;
+    text-transform: uppercase;
+    font-size:15px;
+}
+
+.all-goods-wrapper__item ul{
+    margin: 0;
+    display: flex;
+    flex-direction:column;
+}
+
+.all-goods-wrapper__item ul li{
+    font-size:13px;
+    list-style:none;
+}
+
+/*  */
 .search-panel{
      width:18px; 
     height:18px; 
@@ -66,6 +106,19 @@ header{
     background-image:url('./../../images/Search.png') ;
     display: flex;
     align-self: center;
+    position: relative;
+}
+
+.search-panel-unactive{
+    display: none;
+}
+
+.search-panel__input{
+    padding:5px;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    left:200px;
 }
 
 .share{
@@ -211,7 +264,6 @@ header{
     -o-border-radius:25px;
     outline:none;
 }
-
 
 .header-nav{
     display: flex;

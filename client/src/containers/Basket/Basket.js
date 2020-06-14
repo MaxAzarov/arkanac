@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getCardsFromBasket, deleteCardFromBasket } from "./../../actions/cart";
+import {
+  getCardsFromBasket,
+  deleteCardFromBasket,
+} from "./../../actions/basket";
 
 import "./Basket.css";
 import logo from "../../images/Wallet.png";
@@ -39,7 +42,7 @@ export class Basket extends Component {
                         <span>{item.title}</span>
                       </p>
                       <p className="price">
-                        <span>{item.NewPrice}</span>
+                        <span>${item.newPrice}</span>
                       </p>
                       <p>
                         Size:<span>{item.size}</span>
@@ -84,12 +87,14 @@ export class Basket extends Component {
             <div className="cart-prices">
               <div className="cart-prices-wrapper">
                 <div className="cart-prices-row">
-                  <div className="good">2 items</div>
-                  <div className="price">$42.95</div>
+                  <div className="good">
+                    {this.props.basketItems.length} items
+                  </div>
+                  <div className="price">${this.props.totalPrice}</div>
                 </div>
                 <div className="cart-prices-row">
                   <div className="good">Shipping</div>
-                  <div className="price">$7.00</div>
+                  <div className="price">$0.00</div>
                 </div>
                 <div className="cart-prices-row">
                   <div className="good">Taxes</div>
@@ -99,7 +104,7 @@ export class Basket extends Component {
 
               <div className="cart-total">
                 <span>Total</span>
-                <div className="cart-total-price">$59.95</div>
+                <div className="cart-total-price">${this.props.totalPrice}</div>
               </div>
 
               <button className="btn-checkout">Processed to checkout</button>
@@ -132,7 +137,8 @@ export class Basket extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    basketItems: state.cart.basket,
+    basketItems: state.basket.basket,
+    totalPrice: state.basket.totalPrice,
   };
 };
 

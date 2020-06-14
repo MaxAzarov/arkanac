@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./TopTrending.css";
-import Cards from "../../containers/Cards/Cards";
-import { Link } from "react-router-dom";
+import Cards from "../Cards/Cards";
+import { topTrending } from "./../../actions/trending";
 
 export class TopTrending extends Component {
   constructor(props) {
@@ -11,6 +13,10 @@ export class TopTrending extends Component {
       trendingSorting: ["New products", "Prices drop", "Best sales"],
       sortingBy: "New products",
     };
+  }
+
+  async componentDidMount() {
+    await this.props.topTrending(this.state.sortingBy);
   }
   render() {
     return (
@@ -27,17 +33,20 @@ export class TopTrending extends Component {
             return (
               <button
                 key={index}
+                className={
+                  this.state.sortingBy === item ? "top-trending-btn" : ""
+                }
                 onClick={() => {
+                  this.props.topTrending(item);
                   this.setState({ sortingBy: item });
                 }}
               >
                 <span>{item}</span>
-                <div className="triangle"></div>
               </button>
             );
           })}
         </section>
-        <Cards sortingBy={this.state.sortingBy}></Cards>
+        <Cards cards={this.props.trending}></Cards>
         <button className="all-products-btn">
           <Link
             to="/assortment"
@@ -51,4 +60,16 @@ export class TopTrending extends Component {
   }
 }
 
-export default TopTrending;
+const mapStateToProps = (state) => {
+  return {
+    trending: state.trending.trending,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    topTrending: (filter) => dispatch(topTrending(filter)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopTrending);

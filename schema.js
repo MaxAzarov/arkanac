@@ -9,11 +9,11 @@ const Card = mongoose.model("Cards", {
   title: {
     type: String,
   },
-  OldPrice: {
-    type: String,
+  oldPrice: {
+    type: Number,
   },
-  NewPrice: {
-    type: String,
+  newPrice: {
+    type: Number,
   },
 });
 
@@ -27,10 +27,10 @@ const Basket = mongoose.model("Basket", {
   title: {
     type: String,
   },
-  OldPrice: {
+  oldPrice: {
     type: Number,
   },
-  NewPrice: {
+  newPrice: {
     type: Number,
   },
   amount: {

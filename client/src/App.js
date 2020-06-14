@@ -5,7 +5,7 @@ import "./App.css";
 import Header from "./containers/Header/Header";
 import Features from "./Components/Features/Features";
 import Clothes from "./Components/Clothes/Clothes";
-import TopTrending from "./Components/TopTrending/TopTrending";
+import TopTrending from "./containers/TopTrending/TopTrending";
 import Information from "./Components/Information/Information";
 import Footer from "./Components/Footer/Copyright";
 import AssortmentFiltration from "./Components/AssortmentFiltration/AssortmentFiltration";

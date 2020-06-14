@@ -16,7 +16,7 @@ import card4 from "../../images/carts/4.png";
 import Tabs from "./../../Components/Tabs/Tabs";
 import Cards from "../Cards/Cards";
 
-import { addCardToBasket } from "./../../actions/cart";
+import { addCardToBasket, getCardsFromBasket } from "../../actions/basket";
 
 import { withRouter } from "react-router-dom";
 
@@ -51,7 +51,7 @@ export class CardPreview extends Component {
   }
 
   render() {
-    const { NewPrice, OldPrice, title } = this.state.info;
+    const { newPrice, oldPrice, title } = this.state.info;
     return (
       <>
         <section className="card-preview-wrapper">
@@ -117,8 +117,8 @@ export class CardPreview extends Component {
           <div className="card-preview-text">
             <div className="card-preview-title">{title}</div>
             <div className="card-preview-price">
-              <div className="card-preview-price-new">${NewPrice}</div>
-              <div className="card-preview-price-old">${OldPrice}</div>
+              <div className="card-preview-price-new">${newPrice}</div>
+              <div className="card-preview-price-old">${oldPrice}</div>
             </div>
             <div className="card-preview-subtitle">
               Nemo enim ipsam voluptatem,quia voluptas sit,aspernatur aut odit
@@ -197,14 +197,14 @@ export class CardPreview extends Component {
               <div className="cart-manipulation">
                 <button
                   className="btn-cart"
-                  onClick={() =>
+                  onClick={() => {
                     this.props.addCardToBasket(
                       this.props.match.params.id,
                       this.state.amount,
                       this.state.size,
                       this.state.color
-                    )
-                  }
+                    );
+                  }}
                 >
                   Add to card
                 </button>
@@ -236,7 +236,7 @@ export class CardPreview extends Component {
         <div className="proposals">
           <div className="proposals-title">You might also like</div>
           <div className="proposals-cards">
-            <Cards proposals={2}></Cards>
+            <Cards cards={[]}></Cards>
           </div>
         </div>
       </>
@@ -248,6 +248,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addCardToBasket: (id, amount, size, color) =>
       dispatch(addCardToBasket(id, amount, size, color)),
+    getCardsFromBasket: () => dispatch(getCardsFromBasket()),
   };
 };
 

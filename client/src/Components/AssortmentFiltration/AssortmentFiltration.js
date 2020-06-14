@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+
 import "./AssortmentFiltration.css";
-import AssortmentCards from "../AssortmentCards/AssortmentCards";
+import AssortmentCards from "./../../containers/AssortmentCards/AssortmentCards";
 export class AssortmentFiltration extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +24,8 @@ export class AssortmentFiltration extends Component {
           <div className="categories">
             {this.state.categories.map((category, index) => {
               return (
-                <div className="category-item">
-                  <div className="wrapper" key={index}>
+                <div className="category-item" key={index}>
+                  <div className="wrapper">
                     <p>{category.name}</p>
                     <div className="list">
                       {category.list && (

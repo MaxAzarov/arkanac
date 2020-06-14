@@ -2,12 +2,12 @@
 .trending-cards{
     width:100%;
     flex-wrap:wrap;
-    justify-content: flex-start;
+    justify-content: center;
     display: flex;
-    margin: 30px 25px;
+    margin: 30px auto;
 }
 .card-title{
-    margin: 30px 0 30px 0;
+    margin: 20px 0 10px 0;
 }
 .trending-card .card-title,.card-price{
     text-align: center;
@@ -34,6 +34,7 @@
     display: flex;
     text-align: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .card-price{

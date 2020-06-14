@@ -59,6 +59,13 @@
     outline:none;
 }
 
+.top-trending-sorting .top-trending-btn{
+    border:3px solid black;
+}
+.top-trending-sorting .top-trending-btn::after{
+    border-top: 10px solid #000 ;
+}
+
 .top-trending-sorting button:hover{   
     background-color: #292929;    
 }

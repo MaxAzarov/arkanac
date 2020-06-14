@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./Header.css";
-import img from "../../images/blouses.png";
+// import img from "../../images/blouses.png";
 import {
   deleteCardFromBasket,
   getCardsFromBasket,
   CountTotalPrice,
-} from "../../actions/cart";
+} from "../../actions/basket";
 import classNames from "classnames";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -24,6 +24,7 @@ export class HeaderMain extends Component {
       ],
       catalog: false,
       input: false,
+      share: false,
     };
   }
   async componentDidMount() {
@@ -98,7 +99,15 @@ export class HeaderMain extends Component {
                   Arkanac
                 </Link>
                 <div className="container">
-                  <div className="share"></div>
+                  <div
+                    className="share"
+                    onClick={() =>
+                      // this.props.history.push("https://www.facebook.com/")
+                      this.setState({
+                        redirect: !this.state.redirect,
+                      })
+                    }
+                  ></div>
                   <div
                     className="cart"
                     onClick={() => this.props.history.push("/basket")}
@@ -108,38 +117,42 @@ export class HeaderMain extends Component {
                     </div>
                     <div className="shopping-cart">
                       <p>Shopping Cart</p>
-                      {this.props.basketItems.map((item, index) => {
-                        return (
-                          <div className="shopping-cart__item" key={index}>
-                            <div className="shopping-cart__item__img">
-                              <img src={item.image} alt="" />
+                      {this.props.basketItems.length !== 0 ? (
+                        this.props.basketItems.map((item, index) => {
+                          return (
+                            <div className="shopping-cart__item" key={index}>
+                              <div className="shopping-cart__item__img">
+                                <img src={item.image} alt="" />
+                              </div>
+                              <div className="title">
+                                <p>{item.title}</p>
+                                <p>
+                                  Size:
+                                  <span>{item.size}</span>
+                                </p>
+                                <p>
+                                  Color:
+                                  <span>{item.color}</span>
+                                </p>
+                                <p>
+                                  {item.NewPrice} x {item.amount}
+                                </p>
+                              </div>
+                              <div
+                                className="shopping-cart__item__delete"
+                                onClick={() =>
+                                  this.props.deleteCardFromBasket(item._id)
+                                }
+                              >
+                                <div className="line"></div>
+                                <div className="line"></div>
+                              </div>
                             </div>
-                            <div className="title">
-                              <p>{item.title}</p>
-                              <p>
-                                Size:
-                                <span>{item.size}</span>
-                              </p>
-                              <p>
-                                Color:
-                                <span>{item.color}</span>
-                              </p>
-                              <p>
-                                {item.NewPrice} x {item.amount}
-                              </p>
-                            </div>
-                            <div
-                              className="shopping-cart__item__delete"
-                              onClick={() =>
-                                this.props.deleteCardFromBasket(item._id)
-                              }
-                            >
-                              <div className="line"></div>
-                              <div className="line"></div>
-                            </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })
+                      ) : (
+                        <h4 style={{ marginLeft: "5px" }}>Basket is empty!</h4>
+                      )}
 
                       <div className="shopping-cart-details">
                         <div className="shopping-cart-details__row">
@@ -212,8 +225,8 @@ export class HeaderMain extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    basketItems: state.cart.basket,
-    totalPrice: state.cart.totalPrice,
+    basketItems: state.basket.basket,
+    totalPrice: state.basket.totalPrice,
   };
 };
 const mapDispatchToProps = (dispatch) => {

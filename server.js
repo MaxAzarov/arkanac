@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const { Card, Basket } = require("./schema");
+const { Card, Basket, Outerwear, TShirts, Dresses } = require("./schema");
+const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
+const { emailSendler, password } = require("./emailData");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 mongoose.connect(
@@ -73,8 +75,9 @@ app.delete("/api/basket/card", async (req, res) => {
   }
 });
 
-app.post("/api/price", async (req, res) => {
+app.post("/api/blouses/price", async (req, res) => {
   const { filtration } = req.body;
+  console.log(filtration);
   try {
     switch (filtration) {
       case "Price,high to low":
@@ -93,9 +96,70 @@ app.post("/api/price", async (req, res) => {
   }
 });
 
-app.post("/api/trending", async (req, res) => {
+app.post("/api/outerwear/price", async (req, res) => {
   const { filtration } = req.body;
   console.log(filtration);
+  try {
+    switch (filtration) {
+      case "Price,high to low":
+        Outerwear.find({})
+          .sort("-newPrice")
+          .then((cards) => res.status(200).send(cards));
+        break;
+      case "Price,low to high":
+        Outerwear.find({})
+          .sort("newPrice")
+          .then((cards) => res.status(200).send(cards));
+        break;
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.post("/api/T-Shirts/price", async (req, res) => {
+  const { filtration } = req.body;
+
+  try {
+    switch (filtration) {
+      case "Price,high to low":
+        TShirts.find({})
+          .sort("-newPrice")
+          .then((cards) => res.status(200).send(cards));
+        break;
+      case "Price,low to high":
+        TShirts.find({})
+          .sort("newPrice")
+          .then((cards) => res.status(200).send(cards));
+        break;
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.post("/api/Dresses/price", async (req, res) => {
+  const { filtration } = req.body;
+  try {
+    switch (filtration) {
+      case "Price,high to low":
+        Dresses.find({})
+          .sort("-newPrice")
+          .then((cards) => res.status(200).send(cards));
+        break;
+      case "Price,low to high":
+        Dresses.find({})
+          .sort("newPrice")
+          .then((cards) => res.status(200).send(cards));
+        break;
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.post("/api/trending", async (req, res) => {
+  const { filtration } = req.body;
   try {
     switch (filtration) {
       case "New products":
@@ -109,7 +173,6 @@ app.post("/api/trending", async (req, res) => {
         }).then((cards) => res.status(200).send(cards));
         break;
       case "Best sales":
-        console.log("best sales");
         Card.find({
           newPrice: { $gt: 0, $lt: 80 },
         }).then((cards) => res.status(200).send(cards));
@@ -117,6 +180,40 @@ app.post("/api/trending", async (req, res) => {
     }
   } catch (e) {
     res.status(400).send(e);
+  }
+});
+
+app.post("/api/email", async (req, res) => {
+  const { email } = req.body;
+  try {
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: emailSendler,
+        pass: password,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
+    let mailOption = {
+      from: emailSendler,
+      to: `${email}`,
+      subject: "You subscribe!",
+      text: "You subscribe!",
+    };
+
+    await transporter.sendMail(mailOption, (err, data) => {
+      if (err) {
+        console.log("Errors", err);
+      } else {
+        console.log("Email was sended!");
+      }
+    });
+    res.status(200).send({ status: "ok" });
+  } catch (e) {
+    console.log(e);
   }
 });
 

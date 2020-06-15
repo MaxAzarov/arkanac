@@ -17,13 +17,11 @@
 }
 
 .subscribe-title{
-    /* font-family: 'Montserrat', sans-serif; */
     font-size:26px;
     padding-bottom: 35px;
 }
 
 .subscribe-text{
-    /* font-family: 'Montserrat', sans-serif; */
     font-size:12px;
     padding: 10px 0 0 0;
     color:#929292;
@@ -82,15 +80,22 @@ form.subscribe {
   
   form.subscribe input {
     flex-grow:2;
+    padding:2px;
     border:none;
   }
   
   form.subscribe input:focus {
     outline: none;
-    /* font-family: 'Montserrat', sans-serif; */
-    font-size:11px;
+    font-size:20px;
     color:#929292;
 
+  }
+
+  form.subscribe input::placeholder{
+      margin-left: 10px;
+      /* font-size:10px;
+      display: flex;
+      align-self: center; */
   }
   
   form.subscribe button {

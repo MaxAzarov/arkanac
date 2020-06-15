@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Copyright.css";
+import "./Footer.css";
 
 export class Copyright extends Component {
   constructor(props) {
@@ -18,9 +18,23 @@ export class Copyright extends Component {
         "Stores",
       ],
       account: ["Adresses", "Credit slips", "Orders", "Personal info"],
+      email: "",
     };
   }
+
+  SendEmailHandler = async (e) => {
+    e.preventDefault();
+    fetch("/api/email", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ email: this.state.email }),
+    });
+  };
+
   render() {
+    // console.log(this.state.email);
     return (
       <div className="copyright">
         <div className="copyright-wrapper">
@@ -40,11 +54,17 @@ export class Copyright extends Component {
               })}
             </div>
 
-            <form action="" className="subscribe">
+            <form
+              action=""
+              className="subscribe"
+              onSubmit={this.SendEmailHandler}
+            >
               <input
-                type="text"
+                type="email"
                 placeholder="Enter your e-mail"
                 className="subscribe-email"
+                value={this.state.email}
+                onChange={(e) => this.setState({ email: e.target.value })}
               />
               <button type="submit">Subscribe</button>
             </form>

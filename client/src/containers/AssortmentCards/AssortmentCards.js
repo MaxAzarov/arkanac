@@ -15,10 +15,14 @@ export class Assortment extends Component {
   }
 
   async componentDidMount() {
-    await this.props.SortByPrice(this.state.currentFiltrartion);
+    await this.props.SortByPrice(
+      this.state.currentFiltrartion,
+      this.props.category
+    );
   }
 
   render() {
+    console.log(this.props.filteredCards);
     return (
       <main className="assortment-main">
         <div className="assortment-main-title">
@@ -32,14 +36,14 @@ export class Assortment extends Component {
           </p>
         </div>
         <div className="sorting-info">
-          <p>There are {this.props.cards.length} products</p>
+          <p>There are {this.props.filteredCards.length} products</p>
           <div className="sort-by">
             <p>Sort by:</p>
             <select
               name=""
               className="price-filtration"
               onChange={(e) => {
-                this.props.SortByPrice(e.target.value);
+                this.props.SortByPrice(e.target.value, this.props.category);
                 this.setState({
                   activeFilters: [e.target.value],
                 });
@@ -75,13 +79,13 @@ export class Assortment extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state.basket.cards,
     filteredCards: state.assortment.filteredCards,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    SortByPrice: (filtration) => dispatch(SortByPrice(filtration)),
+    SortByPrice: (filtration, category) =>
+      dispatch(SortByPrice(filtration, category)),
   };
 };
 

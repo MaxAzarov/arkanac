@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./Clothes.css";
 import dresses from "../../images/dress.png";
@@ -25,7 +26,12 @@ export class Clothes extends Component {
           return (
             <div className="clothes-item" key={index}>
               <img src={item.img} alt="" />
-              <button className="clothes-button">{item.title}</button>
+              <Link
+                to={`assortment/${item.title}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <button className="clothes-button">{item.title}</button>
+              </Link>
             </div>
           );
         })}

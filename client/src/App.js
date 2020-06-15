@@ -7,7 +7,7 @@ import Features from "./Components/Features/Features";
 import Clothes from "./Components/Clothes/Clothes";
 import TopTrending from "./containers/TopTrending/TopTrending";
 import Information from "./Components/Information/Information";
-import Footer from "./Components/Footer/Copyright";
+import Footer from "./containers/Footer/Footer";
 import AssortmentFiltration from "./Components/AssortmentFiltration/AssortmentFiltration";
 import CardPreview from "./containers/CardPreview/CardPreview";
 import Basket from "./containers/Basket/Basket";
@@ -24,7 +24,7 @@ function App() {
           <Information></Information>
           <Footer></Footer>
         </Route>
-        <Route path="/assortment" exact>
+        <Route path="/assortment/:category" exact>
           <Header></Header>
           <AssortmentFiltration></AssortmentFiltration>
           <Footer></Footer>

@@ -1,8 +1,8 @@
 import { FILTERED_CARDS } from "../actionTypes/actionTypes";
 
-export const SortByPrice = (filtration) => {
+export const SortByPrice = (filtration, category) => {
   return async (dispatch) => {
-    await fetch("/api/price", {
+    await fetch(`/api/${category}/price`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -11,6 +11,7 @@ export const SortByPrice = (filtration) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         dispatch({ type: FILTERED_CARDS, payload: data });
       });
   };

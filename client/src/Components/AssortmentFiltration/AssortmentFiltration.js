@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 import "./AssortmentFiltration.css";
 import AssortmentCards from "./../../containers/AssortmentCards/AssortmentCards";
@@ -18,6 +19,7 @@ export class AssortmentFiltration extends Component {
     };
   }
   render() {
+    // console.log(this.props.match.params.category);
     return (
       <div className="assortment">
         <div className="left-bar">
@@ -88,10 +90,12 @@ export class AssortmentFiltration extends Component {
             <button className="clean-all">Clean all</button>
           </div>
         </div>
-        <AssortmentCards></AssortmentCards>
+        <AssortmentCards
+          category={this.props.match.params.category}
+        ></AssortmentCards>
       </div>
     );
   }
 }
 
-export default AssortmentFiltration;
+export default withRouter(AssortmentFiltration);

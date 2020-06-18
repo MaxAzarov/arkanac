@@ -10,7 +10,6 @@ import "./Basket.css";
 import logo from "../../images/Wallet.png";
 import bus from "../../images/Bus.png";
 import persons from "../../images/Person.png";
-// import shirt from "../../images/goods/shirt.jpg";
 
 export class Basket extends Component {
   constructor(props) {
@@ -35,7 +34,11 @@ export class Basket extends Component {
                 return (
                   <div className="cart-item" key={index}>
                     <div className="cart-item-img">
-                      <img src={item.image} alt="" />
+                      <img
+                        src={require("./../../images/carts/" + item.image)}
+                        alt=""
+                        className="cart-item"
+                      />
                     </div>
                     <div className="cart-item-details">
                       <p>
@@ -78,7 +81,7 @@ export class Basket extends Component {
             ) : (
               <h1>Basket is empty!</h1>
             )}
-            <Link to="/assortment">
+            <Link to="/assortment/Outerwear">
               <button className="cart-btn-continue">Continue shopping</button>
             </Link>
           </div>

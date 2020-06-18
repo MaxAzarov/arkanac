@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const mongoose = require("mongoose");
 const { Card, Basket, Outerwear, TShirts, Dresses } = require("./schema");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const { emailSendler, password } = require("./emailData");
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 mongoose.connect(
-  "mongodb+srv://max:Starwars123@cluster0-8vk0z.mongodb.net/arkana",
+  `mongodb+srv://max:Starwars123@cluster0-8vk0z.mongodb.net/arkana`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -16,44 +18,132 @@ mongoose.connect(
   }
 );
 
-app.get("/api/cards", (req, res) => {
-  Card.find({})
-    .then((card) => {
-      res.status(200).send(card);
-    })
-    .catch((e) => res.status(400).send(e));
-});
-
 app.post("/api/card", (req, res) => {
-  const { id } = req.body;
-  Card.findById(id)
-    .then((card) => {
-      res.status(200).send(card);
-    })
-    .catch((e) => res.status(400).send(e));
+  const { id, category } = req.body;
+  switch (category) {
+    case "Outerwear":
+      Outerwear.findById(id)
+        .then((card) => {
+          res.status(200).send(card);
+        })
+        .catch((e) => res.status(400).send(e));
+      break;
+    case "Blouses":
+      Card.findById(id)
+        .then((card) => {
+          res.status(200).send(card);
+        })
+        .catch((e) => res.status(400).send(e));
+      break;
+    case "T-Shirts":
+      TShirts.findById(id)
+        .then((card) => {
+          res.status(200).send(card);
+        })
+        .catch((e) => res.status(400).send(e));
+      break;
+    case "Dresses":
+      Dresses.findById(id)
+        .then((card) => {
+          res.status(200).send(card);
+        })
+        .catch((e) => res.status(400).send(e));
+      break;
+  }
 });
 
 app.post("/api/basket", async (req, res) => {
-  const { id, amount, size, color } = req.body;
-  try {
-    Card.findById({ _id: id }).then((card) => {
-      const { image, title, oldPrice, newPrice } = card;
-      const basketCard = new Basket({
-        _id: id,
-        image,
-        title,
-        oldPrice,
-        newPrice,
-        amount: amount,
-        size: size,
-        color: color,
+  const { id, amount, size, color, category } = req.body;
+  switch (category) {
+    case "Outerwear":
+      Outerwear.findById({ _id: id }).then((card) => {
+        const { image, title, oldPrice, newPrice } = card;
+        const basketCard = new Basket({
+          _id: id,
+          image,
+          title,
+          oldPrice,
+          newPrice,
+          amount: amount,
+          size: size,
+          color: color,
+        });
+        basketCard.save();
+        res.status(201).send(basketCard);
       });
-      basketCard.save();
-      res.status(201).send(basketCard);
-    });
-  } catch (e) {
-    res.status(404).send(e);
+      break;
+    case "Blouses":
+      Card.findById({ _id: id }).then((card) => {
+        const { image, title, oldPrice, newPrice } = card;
+        const basketCard = new Basket({
+          _id: id,
+          image,
+          title,
+          oldPrice,
+          newPrice,
+          amount: amount,
+          size: size,
+          color: color,
+        });
+        basketCard.save();
+        res.status(201).send(basketCard);
+      });
+      break;
+    case "T-Shirts":
+      TShirts.findById({ _id: id }).then((card) => {
+        const { image, title, oldPrice, newPrice } = card;
+        const basketCard = new Basket({
+          _id: id,
+          image,
+          title,
+          oldPrice,
+          newPrice,
+          amount: amount,
+          size: size,
+          color: color,
+        });
+        basketCard.save();
+        res.status(201).send(basketCard);
+      });
+      break;
+    case "Dresses":
+      Dresses.findById({ _id: id }).then((card) => {
+        const { image, title, oldPrice, newPrice } = card;
+        const basketCard = new Basket({
+          _id: id,
+          image,
+          title,
+          oldPrice,
+          newPrice,
+          amount: amount,
+          size: size,
+          color: color,
+        });
+        basketCard.save();
+        res.status(201).send(basketCard);
+      });
+      break;
   }
+  // try {
+
+  //   Card.findById({ _id: id }).then((card) => {
+  //     const { image, title, oldPrice, newPrice } = card;
+  //     const basketCard = new Basket({
+  //       _id: id,
+  //       image,
+  //       title,
+  //       oldPrice,
+  //       newPrice,
+  //       amount: amount,
+  //       size: size,
+  //       color: color,
+  //     });
+  //     basketCard.save();
+  //     res.status(201).send(basketCard);
+  //   });
+  // } catch (e) {
+  //   res.status(404).send(e);
+  // }
 });
 
 app.get("/api/basket", async (req, res) => {
@@ -77,7 +167,6 @@ app.delete("/api/basket/card", async (req, res) => {
 
 app.post("/api/blouses/price", async (req, res) => {
   const { filtration } = req.body;
-  console.log(filtration);
   try {
     switch (filtration) {
       case "Price,high to low":
@@ -98,7 +187,6 @@ app.post("/api/blouses/price", async (req, res) => {
 
 app.post("/api/outerwear/price", async (req, res) => {
   const { filtration } = req.body;
-  console.log(filtration);
   try {
     switch (filtration) {
       case "Price,high to low":
@@ -119,7 +207,6 @@ app.post("/api/outerwear/price", async (req, res) => {
 
 app.post("/api/T-Shirts/price", async (req, res) => {
   const { filtration } = req.body;
-
   try {
     switch (filtration) {
       case "Price,high to low":

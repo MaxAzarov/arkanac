@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { compose } from "redux";
 import { connect } from "react-redux";
 
 import "./CardPreview.css";
@@ -40,7 +39,10 @@ export class CardPreview extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: this.props.match.params.id }),
+      body: JSON.stringify({
+        id: this.props.match.params.id,
+        category: this.props.match.params.category,
+      }),
     })
       .then((response) => response.json())
       .then((data) =>
@@ -51,13 +53,17 @@ export class CardPreview extends Component {
   }
 
   render() {
-    const { newPrice, oldPrice, title } = this.state.info;
+    console.log(this.props.match.params.category);
+    const { newPrice, oldPrice, title, image } = this.state.info;
+    console.log(image);
     return (
       <>
         <section className="card-preview-wrapper">
           <div className="images-container">
             <div className="image-big">
-              <img src={this.state.currentImg} alt="" />
+              {image && (
+                <img src={require("./../../images/carts/" + image)} alt="" />
+              )}
             </div>
             <div className="images-swiper">
               <div
@@ -202,7 +208,8 @@ export class CardPreview extends Component {
                       this.props.match.params.id,
                       this.state.amount,
                       this.state.size,
-                      this.state.color
+                      this.state.color,
+                      this.props.match.params.category
                     );
                   }}
                 >
@@ -246,8 +253,8 @@ export class CardPreview extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCardToBasket: (id, amount, size, color) =>
-      dispatch(addCardToBasket(id, amount, size, color)),
+    addCardToBasket: (id, amount, size, color, category) =>
+      dispatch(addCardToBasket(id, amount, size, color, category)),
     getCardsFromBasket: () => dispatch(getCardsFromBasket()),
   };
 };

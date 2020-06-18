@@ -183,7 +183,8 @@ header{
 }
 
 .shopping-cart__item__img{
-    width:150px;
+    width:100px;
+    margin-right: 5px;
 }
 .shopping-cart__item__img img{
     width:100%;

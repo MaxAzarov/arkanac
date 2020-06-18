@@ -7,7 +7,7 @@ import {
   COUNT_TOTAL_PRICE,
 } from "../actionTypes/actionTypes";
 
-export function addCardToBasket(id, amount, size, color) {
+export function addCardToBasket(id, amount, size, color, category) {
   return async (dispatch) => {
     dispatch(addCardToBasketStart());
     try {
@@ -16,9 +16,10 @@ export function addCardToBasket(id, amount, size, color) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id, amount, size, color }),
+        body: JSON.stringify({ id, amount, size, color, category }),
       });
       await dispatch(getCardsFromBasket());
+      dispatch(CountTotalPrice());
     } catch (e) {
       dispatch(addCardToBasketFailure());
     }
@@ -66,6 +67,7 @@ export function deleteCardFromBasket(id) {
         body: JSON.stringify({ id }),
       });
       dispatch(deleteCardFromCart(id));
+      dispatch(CountTotalPrice());
     } catch (e) {
       // dispatch(addCardToBasketFailure());
     }

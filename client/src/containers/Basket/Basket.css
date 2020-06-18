@@ -23,6 +23,12 @@
     justify-content: space-between;
     align-items: center;
 }
+.cart-item-img{
+    max-width:90px;
+}
+.cart-item-img img{
+    width:100%;
+}
 
 .cart-item:nth-last-child(2){
     border-bottom:1px solid rgba(0,0,0,.2);

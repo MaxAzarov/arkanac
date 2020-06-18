@@ -29,7 +29,7 @@ function App() {
           <AssortmentFiltration></AssortmentFiltration>
           <Footer></Footer>
         </Route>
-        <Route path="/card/:id" exact>
+        <Route path="/card/:category/:id" exact>
           <Header></Header>
           <CardPreview></CardPreview>
           <Footer></Footer>

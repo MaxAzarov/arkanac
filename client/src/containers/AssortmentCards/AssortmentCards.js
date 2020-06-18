@@ -14,7 +14,16 @@ export class Assortment extends Component {
     };
   }
 
-  async componentDidMount() {
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevProps.category !== this.props.category) {
+      await this.props.SortByPrice(
+        this.state.currentFiltrartion,
+        this.props.category
+      );
+    }
+  }
+
+  async componentWillMount() {
     await this.props.SortByPrice(
       this.state.currentFiltrartion,
       this.props.category
@@ -22,7 +31,6 @@ export class Assortment extends Component {
   }
 
   render() {
-    console.log(this.props.filteredCards);
     return (
       <main className="assortment-main">
         <div className="assortment-main-title">
@@ -71,7 +79,10 @@ export class Assortment extends Component {
             );
           })}
         </div>
-        <Cards cards={this.props.filteredCards}></Cards>
+        <Cards
+          category={this.props.category}
+          cards={this.props.filteredCards}
+        ></Cards>
       </main>
     );
   }

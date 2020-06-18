@@ -18,8 +18,8 @@ export class AssortmentFiltration extends Component {
       ],
     };
   }
+
   render() {
-    // console.log(this.props.match.params.category);
     return (
       <div className="assortment">
         <div className="left-bar">

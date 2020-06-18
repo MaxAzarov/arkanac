@@ -1,27 +1,19 @@
 import React, { Component } from "react";
+import classNames from "classnames";
+import { NavLink, Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import "./Header.css";
-// import img from "../../images/blouses.png";
 import {
   deleteCardFromBasket,
   getCardsFromBasket,
   CountTotalPrice,
 } from "../../actions/basket";
-import classNames from "classnames";
-import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
 
 export class HeaderMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      headerMenu: [
-        "Dresses",
-        "Blouses",
-        "Tees & Tops",
-        "T - Shirts",
-        "OuterWear",
-        "Pans",
-      ],
+      headerMenu: ["Dresses", "Blouses", "T-Shirts", "OuterWear"],
       catalog: false,
       input: false,
       share: false,
@@ -102,7 +94,6 @@ export class HeaderMain extends Component {
                   <div
                     className="share"
                     onClick={() =>
-                      // this.props.history.push("https://www.facebook.com/")
                       this.setState({
                         redirect: !this.state.redirect,
                       })
@@ -122,7 +113,11 @@ export class HeaderMain extends Component {
                           return (
                             <div className="shopping-cart__item" key={index}>
                               <div className="shopping-cart__item__img">
-                                <img src={item.image} alt="" />
+                                <img
+                                  src={require("./../../images/carts/" +
+                                    item.image)}
+                                  alt=""
+                                />
                               </div>
                               <div className="title">
                                 <p>{item.title}</p>
@@ -186,7 +181,16 @@ export class HeaderMain extends Component {
               {this.state.headerMenu.map((item, index) => {
                 return (
                   <div className="header-menu__item" key={index}>
-                    {item}
+                    <NavLink
+                      activeStyle={{
+                        fontWeight: "bold",
+                        color: "grey",
+                      }}
+                      to={`/assortment/${item}`}
+                      style={{ textDecoration: "none", color: "#000" }}
+                    >
+                      {item}
+                    </NavLink>
                   </div>
                 );
               })}

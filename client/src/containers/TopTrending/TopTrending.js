@@ -19,6 +19,7 @@ export class TopTrending extends Component {
     await this.props.topTrending(this.state.sortingBy);
   }
   render() {
+    console.log(this.props);
     return (
       <div className="top-trending-wrapper">
         <div className="top-trending-title">Top Trending</div>
@@ -46,15 +47,13 @@ export class TopTrending extends Component {
             );
           })}
         </section>
-        <Cards cards={this.props.trending}></Cards>
-        <button className="all-products-btn">
-          <Link
-            to="/assortment"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            all products
-          </Link>
-        </button>
+        <Cards cards={this.props.trending} category={"Blouses"}></Cards>
+        <Link
+          to="/assortment/Blouses"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <button className="all-products-btn">all products</button>
+        </Link>
       </div>
     );
   }

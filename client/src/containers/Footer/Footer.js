@@ -34,17 +34,16 @@ export class Copyright extends Component {
   };
 
   render() {
-    // console.log(this.state.email);
     return (
       <div className="copyright">
         <div className="copyright-wrapper">
-          <div className="subscribe-container">
-            <div className="subscribe-title">ARKANAC</div>
-            <div className="subscribe-text">
+          <div className="footer-container">
+            <div className="footer-title">ARKANAC</div>
+            <div className="footer-text">
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur.
             </div>
-            <div className="subscribe-circles">
+            <div className="footer-circles">
               {this.state.circles.map((circle, index) => {
                 return (
                   <div className="circle" key={index}>
@@ -62,7 +61,7 @@ export class Copyright extends Component {
               <input
                 type="email"
                 placeholder="Enter your e-mail"
-                className="subscribe-email"
+                className="footer-email"
                 value={this.state.email}
                 onChange={(e) => this.setState({ email: e.target.value })}
               />

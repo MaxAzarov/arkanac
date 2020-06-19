@@ -209,17 +209,6 @@ export class HeaderMain extends Component {
                   <span> Discover more</span>
                 </Link>
               </div>
-              <ul className="swiper">
-                <li>
-                  <div className="swiper-icon active"></div>
-                </li>
-                <li>
-                  <div className="swiper-icon"></div>
-                </li>
-                <li>
-                  <div className="swiper-icon"></div>
-                </li>
-              </ul>
             </>
           )}
         </div>

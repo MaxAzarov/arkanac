@@ -1,7 +1,7 @@
 .copyright{
-    padding-top:30px;
+    padding:30px 10px;
     background-color:#FAFAFA;
-    width:100%;
+    min-width:100%;
     display: flex;
 }
 .copyright-wrapper{
@@ -16,12 +16,12 @@
     flex:0 1 30%;
 }
 
-.subscribe-title{
+.footer-title{
     font-size:26px;
     padding-bottom: 35px;
 }
 
-.subscribe-text{
+.footer-text{
     font-size:12px;
     padding: 10px 0 0 0;
     color:#929292;
@@ -29,15 +29,15 @@
 }
 
 /* circle */
-.subscribe-circles{
+.footer-circles{
     display: flex;
     padding-bottom: 20px;
 }
 
-.subscribe-circles .circle{
+.footer-circles .circle{
     margin-right: 10px;
 }
-.subscribe-circles:last-child{
+.footer-circles:last-child{
     margin-right: 0;
 }
 
@@ -76,12 +76,14 @@ form.subscribe {
     flex-direction:row;
     border:1px solid grey;
     padding:2px;
+    margin: 10px;
   }
   
   form.subscribe input {
     flex-grow:2;
     padding:2px;
     border:none;
+    
   }
   
   form.subscribe input:focus {
@@ -93,9 +95,6 @@ form.subscribe {
 
   form.subscribe input::placeholder{
       margin-left: 10px;
-      /* font-size:10px;
-      display: flex;
-      align-self: center; */
   }
   
   form.subscribe button {
@@ -129,3 +128,33 @@ form.subscribe {
 
 }
 
+@media screen and (max-width:670px) {
+    .copyright-wrapper{
+        display: flex;
+        flex-direction:column;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .subscribe-circles{
+        display: flex;
+        padding-bottom: 20px;
+        justify-content: center;
+    }
+    .subscribe-title{
+        text-align: center;
+    }
+    .copyright-information,
+    .copyright-products,
+    .your-account{
+    flex:1 1 100%;
+    padding: 5px;
+}
+.copyright-information p,
+.copyright-products p,
+.your-account p {
+    padding-bottom: 10px;
+    font-size:16px;
+}
+
+
+}

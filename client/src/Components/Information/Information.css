@@ -85,7 +85,7 @@
     }
 }
 .map-wrapper{
-    width:100%;
+    min-width:100%;
     position:relative;
 }
 
@@ -117,6 +117,49 @@
 
 @media screen and (max-width:810px) {
     .map-info{
-        left:0;
+        display: block;
+        position: relative;
+        /* bottom: auto; */
+        left: auto;
+        text-align: center;
     }
+    .map-wrapper img{
+        height:50%;
+    }
+    .map-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:820px) {
+    .trademark{
+        display: flex;
+        flex-direction:column;
+        
+    }
+    .trademark image{
+        margin-bottom: 15px;
+    }
+
+    .trademark__img{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width:870px) {
+    .bags-shoes{
+        display: flex;
+        flex-direction: column;
+    }
+    .bags-shoes-img{
+        display: flex;
+        flex:1 0 100%;
+        min-width:100%;
+        margin-bottom: 10px;
+    }
+
+    
+    
 }

@@ -11,10 +11,10 @@ export class AssortmentFiltration extends Component {
       colorCategory: ["Beige", "Black", "Yellow", "White"],
       compositions: ["Cottom", "Polyester", "Viscose"],
       categories: [
-        { name: "top" },
-        { name: "t-shirt & blouses", list: ["Blouses", "Shirts", "T-Shirts"] },
-        { name: "T-Shirt" },
-        { name: "outerwear" },
+        { name: "Dresses" },
+        { name: "Blouses", list: ["Blouses", "Shirts", "T-Shirts"] },
+        { name: "T-Shirts" },
+        { name: "Outerwear" },
       ],
     };
   }
@@ -26,7 +26,13 @@ export class AssortmentFiltration extends Component {
           <div className="categories">
             {this.state.categories.map((category, index) => {
               return (
-                <div className="category-item" key={index}>
+                <div
+                  className="category-item"
+                  key={index}
+                  onClick={() =>
+                    this.props.history.push("/assortment/" + category.name)
+                  }
+                >
                   <div className="wrapper">
                     <p>{category.name}</p>
                     <div className="list">
@@ -42,52 +48,6 @@ export class AssortmentFiltration extends Component {
                 </div>
               );
             })}
-          </div>
-
-          <div className="filter-categories">
-            <p className="filter-title">Filter by</p>
-            <p>Categories</p>
-            <div className="category-type">
-              {this.state.typeCategory.map((category, index) => {
-                return (
-                  <label className="category-item" key={index}>
-                    <p>{category}</p>
-                    <input type="checkbox" defaultChecked="checked" />
-                    <span className="checkmark" />
-                  </label>
-                );
-              })}
-            </div>
-
-            <p>Color</p>
-            <div className="category-color">
-              {this.state.colorCategory.map((color, index) => {
-                return (
-                  <label className="category-item" key={index}>
-                    <p>{color}</p>
-                    <input type="checkbox" defaultChecked="checked" />
-                    <span
-                      className="checkmark"
-                      style={{ backgroundColor: color }}
-                    />
-                  </label>
-                );
-              })}
-            </div>
-            <p>Compositions</p>
-            <div className="category-compositions">
-              {this.state.compositions.map((composition, index) => {
-                return (
-                  <label className="category-item" key={index}>
-                    <p>{composition}</p>
-                    <input type="checkbox" defaultChecked="checked" />
-                    <span className="checkmark" />
-                  </label>
-                );
-              })}
-            </div>
-
-            <button className="clean-all">Clean all</button>
           </div>
         </div>
         <AssortmentCards

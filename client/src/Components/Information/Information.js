@@ -51,7 +51,9 @@ export class Information extends Component {
 
         <section className="trademark">
           {this.state.images.map((img, index) => {
-            return <img src={img} alt="" key={index} />;
+            return (
+              <img src={img} alt="" key={index} className="trademark__img" />
+            );
           })}
         </section>
         <section className="instagram-wrapper">

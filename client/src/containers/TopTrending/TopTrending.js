@@ -19,7 +19,6 @@ export class TopTrending extends Component {
     await this.props.topTrending(this.state.sortingBy);
   }
   render() {
-    console.log(this.props);
     return (
       <div className="top-trending-wrapper">
         <div className="top-trending-title">Top Trending</div>

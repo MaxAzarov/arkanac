@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import "./CardPreview.css";
 import facebook from "../../images/icons/facebook.png";
@@ -14,10 +15,7 @@ import card3 from "../../images/carts/3.png";
 import card4 from "../../images/carts/4.png";
 import Tabs from "./../../Components/Tabs/Tabs";
 import Cards from "../Cards/Cards";
-
 import { addCardToBasket, getCardsFromBasket } from "../../actions/basket";
-
-import { withRouter } from "react-router-dom";
 
 export class CardPreview extends Component {
   constructor(props) {
@@ -53,9 +51,7 @@ export class CardPreview extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.category);
     const { newPrice, oldPrice, title, image } = this.state.info;
-    console.log(image);
     return (
       <>
         <section className="card-preview-wrapper">

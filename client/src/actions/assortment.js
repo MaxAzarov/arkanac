@@ -11,7 +11,6 @@ export const SortByPrice = (filtration, category) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         dispatch({ type: FILTERED_CARDS, payload: data });
       });
   };
